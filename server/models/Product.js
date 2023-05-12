@@ -33,7 +33,7 @@ const productSchema = new mongoose.Schema({
     },
     reviews: [{
         user: {
-            type: mongoose.Schema.ObjectId,
+            type: mongoose.Schema.Types.ObjectId,
             ref: "User",
             required: true
         },
@@ -63,13 +63,14 @@ const productSchema = new mongoose.Schema({
             },
         }
     ],
-    // user: {
-    //     type: mongoose.Schema.ObjectId,
-    //     ref: "User",
-    //     required: true
-    // },
-}, {
-    timestamps: true,
-});
+    user: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User",
+        required: true
+    },
+},
+    {
+        timestamps: true,
+    });
 
 module.exports = Product = mongoose.model("Product", productSchema);

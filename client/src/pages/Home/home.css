@@ -1,0 +1,33 @@
+/* .slider{
+    width: 100%;  
+} */
+
+/* .slick-slider{
+    padding-top: 2px;
+} */
+
+.slick-arrow{
+    z-index: 1;
+  
+}
+.slick-arrow::before{
+    color: black;
+}
+.slick-arrow:hover::before{
+    color: rgb(148, 81, 81);
+}
+
+
+.slick-prev{
+    left: 10px;
+}
+.slick-next{
+    right: 10px;
+}
+
+.home__slider__image{
+    width: 100%;
+    height: calc(100vh - 100px);
+    /* object-fit: cover; */
+}
+

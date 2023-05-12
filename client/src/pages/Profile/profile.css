@@ -1,0 +1,82 @@
+.profile__page{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.profile__left{
+    height: calc(100vh - 50px);
+    display: flex;
+flex-direction: column;
+justify-content: space-evenly;
+}
+
+.profile__right{
+    width: 500px;
+    height: calc(100vh - 50px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.profile__left>div>button{
+    padding: 10px 100px;
+    outline: none;
+    background-color: tomato;
+    border: 0;
+    cursor: pointer;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    font-family: cursive;
+}
+.profile__left>div>button:hover{
+    opacity: 0.8;
+}
+
+.profile__right>div:last-child>a{
+    width: 80%;
+    display: block;
+    background-color: #FF4742;
+    text-align: center;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+    font-size: 1rem;
+    margin-bottom: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+
+}
+.profile__right>div:last-child>a:hover{
+    filter: grayscale(20%);
+}
+
+.profile__right>div:last-child>button{
+    margin-top: 10px;
+    width: 80%;
+    padding: 10px 20px;
+    border: 0;
+    outline: none;
+    background-color: #2255DC;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+}
+.profile__right>div:last-child>button:hover{
+    filter:drop-shadow(0 0 10px black);
+    
+}
+
+.password__update__container{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+}
+.password__update__container>input{
+    width: 300px;
+    padding: 10px;
+    outline: none;
+}

@@ -1,0 +1,136 @@
+.products__page{
+    background-color: rgba(233, 228, 228, 0.641);
+    display: grid;
+    grid-template-columns: 0.2fr 1fr;
+    grid-gap: 10px;
+    padding: 10px;
+    position: relative;
+}
+
+.filter__container,.products__container{
+    background-color: #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.filter__container{
+  height: 100vh;
+}
+
+.products__container{
+  padding: 1rem;
+}
+
+.products__heading{
+    width: 10vmax;
+   margin: 0 auto;
+   font-size: 1.3rem;
+   border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+   text-align: center;
+   padding-bottom: 10px;
+}
+
+.products__list__container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(250px, 1fr));
+    padding: 20px;
+    row-gap: 20px;
+    margin-top: 10px;
+}
+
+.categories{
+    list-style-type:none;
+}
+
+.categories>p{
+    text-transform: uppercase;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.8);
+}
+.categories>li{
+    padding: 2px 10px;
+    cursor: pointer;
+}
+.categories>li:hover{
+    color: rgba(0, 0, 0, 0.7);
+}
+
+.paginationBox {
+    display: flex;
+    justify-content: center;
+    margin: 6vmax;
+  }
+  
+  .pagination {
+    display: flex;
+    justify-content: center;
+    padding: 0;
+  }
+  
+  .page-item {
+    background-color: rgb(255, 255, 255);
+    list-style: none;
+    border: 1px solid rgba(0, 0, 0, 0.178);
+    padding: 1vmax 1.5vmax;
+    transition: all 0.3s;
+    cursor: pointer;
+  }
+  .page-item:first-child {
+    border-radius: 5px 0 0 5px;
+  }
+  
+  .page-item:last-child {
+    border-radius: 0 5px 5px 0;
+  }
+  .page-link {
+    text-decoration: none;
+    font: 300 0.7vmax "Roboto";
+    color: rgb(80, 80, 80);
+    transition: all 0.3s;
+  }
+  
+  .page-item:hover {
+    background-color: rgb(230, 230, 230);
+  }
+  
+  .page-item:hover .page-link {
+    color: rgb(0, 0, 0);
+  }
+  
+  .pageItemActive {
+    background-color: tomato;
+  }
+  
+  .pageLinkActive {
+    color: white;
+  }
+
+  .price__range{
+    margin-top: 10px;
+    padding: 5px;
+  }
+  .price__range>p{
+    text-transform: uppercase;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.8);
+  }
+  .price__range .price_input{
+    display: flex;
+    justify-content: space-between;
+  }
+  .price__range .price_input>div{
+width: 90px;
+  }
+  .filter__container>div{
+    padding: 20px;
+  }
+ .filter__container>div:not(:last-child){
+
+  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+ }
+ .rating__filter__container>p{
+  text-transform: uppercase;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.8);
+ }
+ .chips__container>div{
+margin:2px; 
+}

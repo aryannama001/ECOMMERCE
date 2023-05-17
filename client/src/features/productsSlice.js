@@ -41,4 +41,35 @@ export const productsSlice = createSlice({
 
 })
 
+
+export const getAllAdminProducts = createAsyncThunk('products/admin/all', async () => {
+    try {
+        const res = await axios.get('/api/products/admin/all')
+        return await res.data
+    } catch (error) {
+        throw error.response.data.error
+    }
+})
+
+export const AdminProductsSlice = createSlice({
+    name: 'adminProducts',
+    initialState: {
+        loading: false,
+        products: [],
+        error: null,
+    },
+    extraReducers: {
+        [getAllAdminProducts.pending]: (state) => {
+            state.loading = true
+        },
+        [getAllAdminProducts.fulfilled]: (state, action) => {
+            state.loading = false
+            state.products = action.payload.products
+        },
+        [getAllAdminProducts.rejected]: (state, action) => {
+            state.error = action.error.message
+        }
+    }
+})
+
 export default productsSlice.reducer

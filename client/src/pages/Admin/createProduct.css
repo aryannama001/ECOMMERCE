@@ -1,0 +1,77 @@
+.create__product__container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.create__product__form{
+    background-color: white;
+    padding: 20px 40px;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+.create__product__form input{
+    width: 100%;
+    padding: 10px 20px;
+    margin:10px 0;
+    border-radius:50px;
+    border: 1px solid  rgb(203 213 225);
+}
+
+.create__product__form textarea{
+    width: 100%;
+    padding: 10px 20px;
+    margin:10px 0;
+    border-radius:10px;
+    border: 1px solid  rgb(203 213 225);
+}
+
+.create__product__form select{
+    padding: 10px 20px;
+    border-radius: 50px;
+    background: none;
+    border: 1px solid  rgb(203 213 225);
+    margin:10px 0;
+    width: 100%;
+}
+
+.create__product__image__input>input{
+    padding: 0;
+}
+
+.create__product__image__input>input::file-selector-button{
+    cursor: pointer;
+    width: 100%;
+    z-index: 2;
+    height: 5vh;
+    border: none;
+    margin: 0%;
+    font: 400 0.8vmax cursive;
+    transition: all 0.5s;
+    padding: 0 1vmax;
+    color: rgba(0, 0, 0, 0.623);
+    background-color: rgb(255, 255, 255);
+}
+.create__product__btn{
+    display: flex;
+    justify-content: center;
+    margin:10px 0;
+}
+.create__product__btn>button{
+    width: 50%;
+    background-color: #4f46e5;
+    padding: 10px;
+    color: white;
+    border-radius: 50px;
+    font-weight: 500;
+}
+
+.input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Hide the number input arrows for Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}

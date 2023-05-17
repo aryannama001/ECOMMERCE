@@ -1,0 +1,36 @@
+.sidebar{
+    background-color: white;
+    position: fixed;
+    top: 50px;
+    left: 0;
+    width: 250px;
+    min-height: 100vh;
+}
+
+.sidebar__content__container{
+    margin-top: 10px;
+    padding-left: 10px;
+}
+
+.sidebar__content{
+    padding: 10px;
+}
+
+.sidebar__content__heading{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.sidebar__content__heading>svg{
+   font-size: 18px;
+}
+
+.product__expand__content>a{
+    padding-left: 25px;
+    margin: 10px 0px;
+}
+
+.sidebar__content:hover{
+    background-color: rgba(128, 128, 128, 0.448);
+}

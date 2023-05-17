@@ -1,0 +1,28 @@
+.dashboard__container{
+    width: calc(100vw - 250px);
+    position: relative;
+    left: 250px;
+}
+
+.dashboard__summary{
+    padding: 20px;
+    width: 180px;
+    height: 180px;
+    background-color: #f87171;
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: white;
+    font-weight: 400;
+    font-size: 1.5rem;
+}
+
+.dashboard__summary:first-of-type{
+    background-color: #6366f1;
+}
+
+.dashboard__summary:last-of-type{
+    background-color: #16a34a;
+}

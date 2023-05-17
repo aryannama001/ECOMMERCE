@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom'
 import Home from './pages/Home/Home';
 import Navbar from './components/Navbar/Navbar';
 import Products from './pages/Products/Products';
@@ -26,12 +26,20 @@ import AboutUs from './pages/AboutUs';
 import Footer from './components/Footer';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import ScrollToTop from './ScrollToTop';
+import Dashboard from './pages/Admin/Dashboard';
+import ProductsList from './pages/Admin/ProductsList';
+import Sidebar from './components/Admin/Sidebar';
+import CreateProduct from './pages/Admin/CreateProduct';
 
 
 
 
 function App() {
   const dispatch = useDispatch()
+  const location = useLocation()
+
+  const isAdminRoute = location.pathname.startsWith('/admin');
 
   const [stripeApiKey, setStripeApiKey] = useState("");
 
@@ -47,9 +55,11 @@ function App() {
     getStripeApiKey();
   }, [dispatch])
   return (
-    <BrowserRouter>
+    // <BrowserRouter>
+    <ScrollToTop>
       <ToastContainer />
       <Navbar />
+      {isAdminRoute && <Sidebar />}
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/products' element={<Products />} />
@@ -67,14 +77,21 @@ function App() {
           <Route path='/order/:id' element={<OrderDetail />} />
         </Route>
 
+        <Route element={<ProtectedRoute admin={true} />} >
+          <Route path='/admin/dashboard' element={<Dashboard />} />
+          <Route path='/admin/products/all' element={<ProductsList />} />
+          <Route path='/admin/products/create' element={<CreateProduct />} />
+        </Route>
+
         <Route path='/cart' element={<Cart />} />
         <Route path='/contact' element={<ContactUs />} />
         <Route path='/about' element={<AboutUs />} />
 
 
       </Routes>
-      <Footer />
-    </BrowserRouter>
+      {!isAdminRoute && <Footer />}
+    </ScrollToTop>
+    // </BrowserRouter>
   );
 }
 

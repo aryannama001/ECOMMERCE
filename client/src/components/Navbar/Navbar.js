@@ -92,6 +92,11 @@ const Navbar = () => {
                                                 Profile
                                             </li>
                                         </Link>
+                                        {user.isAdmin && <Link to='/admin/dashboard' >
+                                            <li>
+                                                Dashboard
+                                            </li>
+                                        </Link>}
                                         <li onClick={handleLogout} className='flex col gap-2 items-center'>
                                             Logout <CgLogOut />
                                         </li>

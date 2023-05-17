@@ -51,6 +51,24 @@ exports.getAllProducts = async (req, res) => {
     }
 }
 
+exports.getAllAdminProducts = async (req, res) => {
+    try {
+
+        const products = await Product.find();
+
+        res.status(200).json({
+            success: true,
+            products
+        })
+
+    } catch (err) {
+        res.status(400).json({
+            success: false,
+            error: err.message
+        })
+    }
+}
+
 exports.featuredProducts = async (req, res) => {
     try {
         const products = await Product.find()

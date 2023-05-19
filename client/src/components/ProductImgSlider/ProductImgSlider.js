@@ -1,28 +1,20 @@
 import React from 'react'
 import './productImgSlider.css'
-import Slider from "react-slick";
+import ImageGallery from 'react-image-gallery';
+import 'react-image-gallery/styles/css/image-gallery.css';
+
 const ProductImgSlider = ({ product }) => {
-    const settings = {
-        dots: true,
-        infinite: true,
-        speed: 500,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        autoplay: true,
-        autoplaySpeed: 5000,
-        cssEase: "linear"
-    };
+
+    const items = product.images && product.images.map(image => (
+        {
+            original: image.url,
+            thumbnail: image.url,
+        }
+    ))
+
     return (
         <div>
-            <Slider {...settings} className='product__image__slider'>
-                {
-                    product.images && product.images.map((item, i) => (
-                        <div>
-                            <img src={item.url} alt="" className='product__slider__image' />
-                        </div>
-                    ))
-                }
-            </Slider>
+            {product.images && <ImageGallery items={items} autoPlay={true} showPlayButton={false} />}
         </div>
     )
 }

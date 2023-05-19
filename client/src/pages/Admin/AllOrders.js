@@ -5,57 +5,56 @@ import { FaEdit } from 'react-icons/fa';
 import { Button } from '@mui/material';
 import { MdDelete } from 'react-icons/md';
 import { useDispatch, useSelector } from 'react-redux'
-import './productList.css'
-import { getAllAdminProducts } from '../../features/productsSlice';
-import { clearError, clearIsdeletedStatus, deleteProduct } from '../../features/productSlice';
 import { toast } from 'react-toastify';
+import { clearOrderStatus, deleteOrder, getAllOrders } from '../../features/orderSlice';
 
 const ProductsList = () => {
 
     const dispatch = useDispatch()
 
-    const { products } = useSelector(state => state.adminProducts)
 
-    const { error, isProductDeleted } = useSelector(state => state.product)
+    const { allOrders, isOrderDeleted } = useSelector(state => state.AllOrders)
 
     useEffect(() => {
-        dispatch(getAllAdminProducts())
+        dispatch(getAllOrders())
 
-        if (error) {
-            toast.error(error)
-            dispatch(clearError());
+        if (isOrderDeleted) {
+            toast.success("Order Deleted")
+            dispatch(clearOrderStatus())
         }
-        if (isProductDeleted) {
-            toast.success("product deleted successfully");
-            dispatch(clearIsdeletedStatus())
-        }
-    }, [dispatch, error, isProductDeleted])
+
+
+    }, [dispatch, isOrderDeleted])
 
     const handleDelete = (id) => {
-        dispatch(deleteProduct(id))
-
+        dispatch(deleteOrder(id))
     }
 
     const columns = [
-        { field: "id", headerName: "Product ID", minWidth: 200, flex: 1 },
+        { field: "id", headerName: "Order ID", minWidth: 300, flex: 1 },
 
         {
-            field: "name",
-            headerName: "Name",
-            minWidth: 300,
-            flex: 1,
+            field: "status",
+            headerName: "Status",
+            minWidth: 250,
+            flex: 0.5,
+            cellClassName: (params) => {
+                return params.row.status === "Delivered"
+                    ? "greenColor"
+                    : "redColor";
+            },
         },
         {
-            field: "stock",
-            headerName: "Stock",
+            field: "quantity",
+            headerName: "Items Quantity",
             type: "number",
             minWidth: 150,
             flex: 0.3,
         },
 
         {
-            field: "price",
-            headerName: "Price",
+            field: "amount",
+            headerName: "Amount",
             type: "number",
             minWidth: 270,
             flex: 0.5,
@@ -71,7 +70,7 @@ const ProductsList = () => {
             renderCell: (params) => {
                 return (
                     <>
-                        <Link to={`/admin/product/${params.row.id}`} > <FaEdit /> </Link>
+                        <Link to={`/admin/orders/${params.row.id}`} > <FaEdit /> </Link>
 
                         <Button className='delete__icon' onClick={() => handleDelete(params.row.id)}>
                             <MdDelete />
@@ -85,13 +84,13 @@ const ProductsList = () => {
 
     const rows = []
 
-    products &&
-        products.forEach((item) => {
+    allOrders &&
+        allOrders.forEach((item) => {
             rows.push({
                 id: item._id,
-                stock: item.stock,
-                price: item.price,
-                name: item.name,
+                status: item.orderStatus,
+                amount: item.totalPrice,
+                quantity: item.orderItems.length,
             });
         });
 
@@ -100,7 +99,7 @@ const ProductsList = () => {
         <div className='min-h-screen'>
 
             <div className='dashboard__container px-5'>
-                <h1 className='text-center text-3xl font-medium text-blue-800 pt-5'>All Products</h1>
+                <h1 className='text-center text-3xl font-medium text-blue-800 pt-5'>All Orders</h1>
 
                 <div>
                     <DataGrid

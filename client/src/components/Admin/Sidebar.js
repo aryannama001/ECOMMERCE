@@ -44,20 +44,20 @@ const Sidebar = () => {
                     </div>}
                 </div>
                 <div className="sidebar__content">
-                    <Link className='sidebar__content__heading'>
+                    <Link className='sidebar__content__heading' to='/admin/orders'>
                         <MdOutlineShoppingCart />
                         <Typography>Orders</Typography>
                     </Link>
                 </div>
                 <div className="sidebar__content">
-                    <Link className='sidebar__content__heading'>
+                    <Link className='sidebar__content__heading' to='/admin/users/all'>
                         <FiUsers />
                         <Typography>Users</Typography>
 
                     </Link>
                 </div>
                 <div className="sidebar__content">
-                    <Link className='sidebar__content__heading'>
+                    <Link className='sidebar__content__heading' to='/admin/reviews'>
                         <MdOutlineRateReview />
                         <Typography>Reviews</Typography>
                     </Link>

@@ -1,5 +1,6 @@
 import React from 'react';
 import { FaFacebook, FaTwitter, FaInstagram } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
     return (
@@ -28,24 +29,24 @@ const Footer = () => {
                         <h2 className="text-white text-lg font-medium mb-4">Quick Links</h2>
                         <ul className="list-none">
                             <li className="mb-2">
-                                <a href="#" className="text-gray-500 hover:text-white">
+                                <Link to='/' className="text-gray-500 hover:text-white">
                                     Home
-                                </a>
+                                </Link>
                             </li>
                             <li className="mb-2">
-                                <a href="#" className="text-gray-500 hover:text-white">
+                                <Link to='/products' className="text-gray-500 hover:text-white">
                                     Shop
-                                </a>
+                                </Link>
                             </li>
                             <li className="mb-2">
-                                <a href="#" className="text-gray-500 hover:text-white">
+                                <Link to='/about' className="text-gray-500 hover:text-white">
                                     About Us
-                                </a>
+                                </Link>
                             </li>
                             <li className="mb-2">
-                                <a href="#" className="text-gray-500 hover:text-white">
+                                <Link to='/contact' className="text-gray-500 hover:text-white">
                                     Contact Us
-                                </a>
+                                </Link>
                             </li>
                         </ul>
                     </div>
@@ -53,7 +54,7 @@ const Footer = () => {
                         <h2 className="text-white text-lg font-medium mb-4">Contact Us</h2>
                         <p className="text-gray-500 leading-loose mb-4">
                             123 Main St. Suite 100<br />
-                            Anytown, USA 12345<br />
+                            India, 12345<br />
                             info@example.com<br />
                             (123) 456-7890
                         </p>

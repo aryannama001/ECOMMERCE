@@ -31,7 +31,7 @@ exports.newOrder = async (req, res) => {
     }
 }
 
-//get single order -- admin
+//get single order
 
 exports.getSingleOrder = async (req, res) => {
     try {
@@ -104,9 +104,11 @@ exports.updateOrder = async (req, res) => {
             throw new Error("Order is already Delivered")
         }
 
-        order.orderItems.forEach(async (item) => {
-            await updateStock(item.productId, item.quantity)
-        })
+        if (req.body.status === 'Shipped') {
+            order.orderItems.forEach(async (item) => {
+                await updateStock(item.productId, item.quantity)
+            })
+        }
 
         order.orderStatus = req.body.status;
 

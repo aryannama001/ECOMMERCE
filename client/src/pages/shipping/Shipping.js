@@ -42,7 +42,7 @@ const Shipping = () => {
     return (
         <>
             <ShippingSteps activeStep={0} />
-            <div className="shipping__details__container">
+            <div className="shipping__details__container min-h-screen">
                 <div >
 
                     <form encType="multipart/form-data"

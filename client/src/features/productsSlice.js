@@ -72,4 +72,49 @@ export const AdminProductsSlice = createSlice({
     }
 })
 
+export const createProduct = createAsyncThunk('product/create', async (data) => {
+    try {
+        const config = { headers: { "Content-Type": "multipart/form-data" } };
+        const res = await axios.post('/api/products', data, config)
+        return await res.data
+    } catch (error) {
+        throw error.response.data.error
+    }
+})
+
+export const newProductSlice = createSlice({
+    name: 'newProduct',
+    initialState: {
+        loading: false,
+        newProduct: {},
+        error: null,
+        success: null
+    },
+    reducers: {
+        clearNewProductError: (state) => {
+            state.error = null
+        },
+        clearNewProductSuccess: (state) => {
+            state.success = null
+        },
+
+    },
+    extraReducers: {
+        [createProduct.pending]: (state) => {
+            state.loading = true
+        },
+        [createProduct.fulfilled]: (state, action) => {
+            state.loading = false
+            state.newProduct = action.payload.product
+            state.success = true
+        },
+        [createProduct.rejected]: (state, action) => {
+            state.loading = false
+            state.error = action.error.message
+        }
+    }
+})
+
+export const { clearNewProductError, clearNewProductSuccess } = newProductSlice.actions
+
 export default productsSlice.reducer

@@ -3,6 +3,7 @@ import './home.css'
 import FeaturedProducts from '../../components/FeaturedProducts';
 import PerksSection from '../../components/PerksSection';
 import { Divider } from '@mui/material';
+import { Link } from 'react-router-dom';
 
 const Home = () => {
   // const settings = {
@@ -32,7 +33,6 @@ const Home = () => {
             </div>
             <div>
               <div className="mt-10">
-                {/* Decorative image grid */}
                 <div
                   aria-hidden="true"
                   className="pointer-events-none lg:absolute lg:inset-y-0 lg:mx-auto lg:w-full lg:max-w-7xl"
@@ -98,12 +98,12 @@ const Home = () => {
                   </div>
                 </div>
 
-                <a
-                  href="#"
+                <Link
+                  to='/products'
                   className="inline-block rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-center font-medium text-white hover:bg-indigo-700"
                 >
                   Shop Collection
-                </a>
+                </Link>
               </div>
             </div>
           </div>

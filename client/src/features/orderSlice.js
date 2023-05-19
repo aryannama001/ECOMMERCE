@@ -113,3 +113,95 @@ export const orderDetails = createSlice({
         }
     }
 })
+
+
+//get all orders
+
+export const getAllOrders = createAsyncThunk('admin/allorders', async () => {
+    try {
+        const res = await axios.get('/api/order/admin/all-orders');
+        return await res.data
+    } catch (error) {
+        throw error.response.data.error
+
+    }
+})
+
+export const deleteOrder = createAsyncThunk('admin/order/delete', async (id) => {
+    try {
+        const res = await axios.delete(`/api/order/${id}`)
+        return await res.data.success
+    } catch (error) {
+        throw error.response.data.error
+    }
+})
+
+export const updateOrderStatus = createAsyncThunk('admin/order/update-status', async ({ orderId, data }) => {
+    try {
+        const res = await axios.put(`/api/order/${orderId}`, data)
+        return await res.data.success
+    } catch (error) {
+        throw error.response.data.error
+    }
+})
+
+export const AllOrdersSlice = createSlice({
+    name: "allorders",
+    initialState: {
+        loading: false,
+        allOrders: [],
+        toatlAmount: null,
+        error: null
+    },
+    reducers: {
+        clearOrderStatus: (state) => {
+            state.isOrderDeleted = null
+        },
+        clearError: (state) => {
+            state.error = null
+        },
+        clearUpdateStatus: (state) => {
+            state.isOrderUpdated = null
+        }
+    },
+    extraReducers: {
+        [getAllOrders.pending]: (state) => {
+            state.loading = true
+        },
+        [getAllOrders.fulfilled]: (state, action) => {
+            state.loading = false
+            state.allOrders = action.payload.orders
+            state.totalAmount = action.payload.totalAmount
+        },
+        [getAllOrders.rejected]: (state, action) => {
+            state.loading = false
+            state.error = action.error.message
+        },
+        [deleteOrder.pending]: (state) => {
+            state.loading = true
+        },
+        [deleteOrder.fulfilled]: (state, action) => {
+            state.loading = false
+            state.isOrderDeleted = action.payload
+        },
+        [deleteOrder.rejected]: (state, action) => {
+            state.loading = false
+            state.error = action.error.message
+        },
+        [updateOrderStatus.pending]: (state) => {
+            state.loading = true
+        },
+        [updateOrderStatus.fulfilled]: (state, action) => {
+            state.loading = false
+            state.isOrderUpdated = action.payload
+        },
+        [updateOrderStatus.rejected]: (state, action) => {
+            state.loading = false
+            state.error = action.error.message
+        },
+    }
+})
+
+export const { clearError, clearOrderStatus, clearUpdateStatus } = AllOrdersSlice.actions
+
+

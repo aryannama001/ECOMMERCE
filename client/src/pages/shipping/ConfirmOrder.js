@@ -30,7 +30,7 @@ const ConfirmOrder = () => {
     return (
         <div>
             <ShippingSteps activeStep={1} />
-            <div className="confirmOrder__container">
+            <div className="confirmOrder__container  min-h-screen">
                 <div className="order__details">
                     <h2>Shipping Info:</h2>
                     <div className="shippingInfo">

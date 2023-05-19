@@ -52,6 +52,7 @@
     font-weight: 400;
     cursor: pointer;
     transition: all 0.3s;
+    display: block;
 }
 
 .pay__btn:hover{

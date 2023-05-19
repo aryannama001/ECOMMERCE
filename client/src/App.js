@@ -31,6 +31,11 @@ import Dashboard from './pages/Admin/Dashboard';
 import ProductsList from './pages/Admin/ProductsList';
 import Sidebar from './components/Admin/Sidebar';
 import CreateProduct from './pages/Admin/CreateProduct';
+import UpdateProduct from './pages/Admin/UpdateProduct';
+import AllOrders from './pages/Admin/AllOrders';
+import UpdateOrder from './pages/Admin/UpdateOrder';
+import UsersList from './pages/Admin/UsersList';
+import Reviews from './pages/Admin/Reviews';
 
 
 
@@ -81,6 +86,11 @@ function App() {
           <Route path='/admin/dashboard' element={<Dashboard />} />
           <Route path='/admin/products/all' element={<ProductsList />} />
           <Route path='/admin/products/create' element={<CreateProduct />} />
+          <Route path='/admin/product/:id' element={<UpdateProduct />} />
+          <Route path='/admin/orders' element={<AllOrders />} />
+          <Route path='/admin/orders/:id' element={<UpdateOrder />} />
+          <Route path='/admin/users/all' element={<UsersList />} />
+          <Route path='/admin/reviews' element={<Reviews />} />
         </Route>
 
         <Route path='/cart' element={<Cart />} />

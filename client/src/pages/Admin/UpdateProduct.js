@@ -64,10 +64,10 @@ const UpdateProduct = () => {
 
 
     const categories = [
-        "Clothing & Apparel",
-        "Footwear & Shoes",
+        "Clothing",
+        "Footwear",
         "Electronics",
-        "Games & Toys",
+        "Games",
         "Stationery",
         "Mobile"
     ]

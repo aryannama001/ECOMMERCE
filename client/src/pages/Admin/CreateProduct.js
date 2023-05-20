@@ -38,10 +38,10 @@ const CreateProduct = () => {
     const [imagesPreview, setImagesPreview] = useState([]);
 
     const categories = [
-        "Clothing & Apparel",
-        "Footwear & Shoes",
+        "Clothing",
+        "Footwear",
         "Electronics",
-        "Games & Toys",
+        "Games",
         "Stationery",
         "Mobile"
     ]

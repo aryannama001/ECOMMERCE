@@ -8,24 +8,27 @@ import './products.css'
 import Pagination from "react-js-pagination";
 import Slider from '@mui/material/Slider';
 import { Chip, TextField, Typography } from '@mui/material';
+import Loader from '../../components/Loader';
 
 
 const Products = () => {
     const dispatch = useDispatch();
 
     const [category, setCategory] = useState("")
-    const [limit, setLimit] = useState(10)
+    const [limit, setLimit] = useState(8)
     const [page, setPage] = useState(1)
     const [price, setPrice] = useState([0, 50000])
     const [rating, setRating] = useState(0)
 
-    const { products, error, productsCount } = useSelector((state) => state.products)
+    const { products, error, productsCount, loading } = useSelector((state) => state.products)
 
     useEffect(() => {
         if (error) {
             toast.error(error)
 
         }
+        console.log(category)
+
 
         dispatch(getAllProducts({ category, page, limit, price, rating }))
     }, [dispatch, error, category, page, limit, price, rating]);
@@ -35,10 +38,10 @@ const Products = () => {
 
     }, [category])
     const categories = [
-        "Clothing & Apparel",
-        "Footwear & Shoes",
+        "Clothing",
+        "Footwear",
         "Electronics",
-        "Games & Toys",
+        "Games",
         "Stationery",
         "Mobile"
 
@@ -58,8 +61,8 @@ const Products = () => {
 
     return (
         <>
-            <div className="products__page">
-                <div className="filter__container">
+            {<div className="products__page">
+                <div className="filter__container w-60">
                     <div className="filter_heading">
                         <Typography>Filters</Typography>
                         <div className="chips__container">
@@ -116,7 +119,7 @@ const Products = () => {
                     </div>
                 </div>
 
-                <div className="products__container">
+                {loading ? <Loader /> : <div className="products__container">
 
                     <div className="products__heading">
                         <span>Procucts</span>
@@ -156,10 +159,10 @@ const Products = () => {
                             textAlign: "center"
                         }}>No Products found</h2>
                     }
-                </div>
+                </div>}
 
 
-            </div>
+            </div>}
         </>
     )
 }

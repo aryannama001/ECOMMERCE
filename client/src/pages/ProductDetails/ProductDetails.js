@@ -9,6 +9,7 @@ import ReactStars from 'react-stars'
 import ReviewCard from '../../components/ReviewCard/ReviewCard';
 import { toast } from 'react-toastify';
 import { addToCart } from '../../features/cartSlice';
+import Loader from '../../components/Loader';
 
 
 
@@ -18,7 +19,7 @@ const ProductDetails = () => {
     const params = useParams();
     const navigate = useNavigate()
 
-    const { product, error, isReviewSubmited } = useSelector((state) => state.product)
+    const { product, error, isReviewSubmited, loading } = useSelector((state) => state.product)
 
     const [quantity, setQuantity] = useState(1);
     const [rating, setRating] = useState(0);
@@ -71,8 +72,8 @@ const ProductDetails = () => {
         navigate('/cart')
     }
 
-    return (
-        <div className='product__details__page'>
+    return (<>
+        {loading ? <Loader /> : <div className='product__details__page'>
             <div className="product__details__container">
                 <div className="product__images__slider">
                     <ProductImgSlider product={product} />
@@ -131,7 +132,8 @@ const ProductDetails = () => {
 
             </div>
 
-        </div>
+        </div>}
+    </>
     )
 }
 

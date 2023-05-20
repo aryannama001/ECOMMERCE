@@ -5,7 +5,7 @@
 .product__details__container{
     width: calc(100vw - 200px);
     display: grid;
-    height: calc(100vh - 50px);
+    height: auto;
     grid-template-columns: 0.5fr 1fr;
   margin: 0 auto;
 }
@@ -19,7 +19,7 @@
     font-size: 20px;
     font-style: italic;
     margin-bottom: 5px;
-    letter-spacing: 5px;
+    letter-spacing: 2px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.5);
     padding: 20px 0;
 }
@@ -163,7 +163,7 @@ justify-content: center;
   }
 .reviews__container{
     width: 60vw;
-    margin: 0 auto;
+    margin: 50px auto;
 }
   .reviews__container>span{
     padding-bottom: 20px;
@@ -209,4 +209,9 @@ justify-content: center;
   .product__images__slider{
     width: 500px;
     height: 400px;
+
+  }
+
+.image-gallery-content .image-gallery-slide .image-gallery-image{
+    max-height: 500px;
   }
